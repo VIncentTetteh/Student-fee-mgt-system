@@ -1,0 +1,73 @@
+<header class="w-100 ">
+    <nav class="navbar navbar-light bg-secondary sticky-top">
+      <div class="container-fluid">
+        <h1 class="text-light">SFMS</h1>
+        <button class="btn btn-light mb-2 mr-2" style="margin-right: 50px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="clickAddStudent()">Add Details</button>
+      </div>
+    </nav>
+  </header>
+  <table class="table text-center">
+    <thead class="table-dark">
+      <tr>
+        <th>Student ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Student Email</th>
+        <th>Mobile Number</th>
+        <th>Student Fees</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of getAllStudents">
+            <td>{{student.id}}</td>
+            <td>{{student.firstName}}</td>
+            <td>{{student.secondName}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.phoneNumber}}</td>
+            <td>{{student.studentFees}}</td>
+            <td>
+                <button type="button" class="btn btn-primary" style="margin-right: 15px;"data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="onEdit(student)">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="deleteStudents(student)" >Delete</button>
+            </td>
+        </tr> 
+      
+    </tbody>
+  </table>
+  <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Student Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form [formGroup] = "formValue" action="post" ngNativeValidate>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <input type="text" class="form-control"  formControlName="firstName" placeholder="First Name" required>
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" class="form-control"  formControlName="secondName" placeholder="Second Name" required>
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control"  formControlName="email" placeholder="name@gmail.com" required>
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" class="form-control"  formControlName="phoneNumber" placeholder="+233 " required>
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" class="form-control"  formControlName="studentFees" placeholder="Student Fees " required>
+                  </div>
+                  
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="getAllStudent()">Exit</button>
+              <input type="submit" *ngIf="showAdd" (click)="postStudentDetails()" class="btn btn-primary" value="Save">
+              <input type="submit" *ngIf="showUpdate" (click)="updateStudents()" class="btn btn-primary" value="Update">
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

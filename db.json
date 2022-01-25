@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "firstName": "Vincent",
+      "secondName": "Tetteh",
+      "email": "vincentchrisbone@gmail.com",
+      "phoneNumber": "0542880528",
+      "studentFees": "15004"
+    },
+    {
+      "id": 2,
+      "firstName": "kwame",
+      "secondName": "kofi",
+      "email": "yoo@gmail.com",
+      "phoneNumber": "0542880528",
+      "studentFees": "5663"
+    },
+    {
+      "id": 3,
+      "firstName": "kwame",
+      "secondName": "kofi",
+      "email": "kofi@gmail.com",
+      "phoneNumber": "042855",
+      "studentFees": "12000"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
